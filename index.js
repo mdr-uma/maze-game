@@ -2,6 +2,7 @@ const { Engine, Render, Runner, World, Bodies } = Matter
 
 const width = 600
 const height = 600
+const cells = 3
 
 const engine = Engine.create()
 const { world } = engine
@@ -29,14 +30,14 @@ World.add(world, walls)
 
 //Maze generation
 
-const grid = Array(3)
+const grid = Array(cells)
     .fill(null)
-    .map(() => Array(3).fill(false))
+    .map(() => Array(cells).fill(false))
 
-const verticles = Array(3)
+const verticles = Array(cells)
     .fill(null)
-    .map(() => Array(2).fill(false))
+    .map(() => Array(cells - 1).fill(false))
 
-const horizontals = Array(2)
+const horizontals = Array(cells - 1)
     .fill(null)
-    .map(() => Array(3).fill(false))
+    .map(() => Array(cells).fill(false))
