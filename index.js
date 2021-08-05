@@ -26,3 +26,9 @@ const walls = [
 ]
 
 World.add(world, walls)
+
+//Maze generation
+
+const grid = Array(3)
+    .fill(null)
+    .map(() => Array(3).fill(false))
