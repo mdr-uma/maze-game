@@ -51,6 +51,13 @@ const stepThroughCell = (row, column) => {
     }
 
     grid[row][column] = true
+
+    const neighbors = shuffle([
+        [row - 1, column],
+        [row, column + 1],
+        [row + 1, column],
+        [row, column - 1]
+    ])
 }
 
 stepThroughCell(startRow, startColumn)
