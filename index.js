@@ -68,14 +68,14 @@ const stepThroughCell = (row, column) => {
     grid[row][column] = true
 
     const neighbors = shuffle([
-        [row - 1, column],
-        [row, column + 1],
-        [row + 1, column],
-        [row, column - 1]
+        [row - 1, column, 'up'],
+        [row, column + 1, 'right'],
+        [row + 1, column, 'down'],
+        [row, column - 1, 'left']
     ])
 
     for (let neighbor of neighbors) {
-        const [nextRow, nextColumn] = neighbor
+        const [nextRow, nextColumn, direction] = neighbor
 
         if (nextRow < 0 || nextRow >= cells || nextColumn >= cells) {
             continue
@@ -83,6 +83,12 @@ const stepThroughCell = (row, column) => {
 
         if (grid[nextRow][nextColumn]) {
             continue
+        }
+
+        if (direction === 'left') {
+            verticles[row][column - 1] = true
+        } else if (direction === 'right') {
+            verticles[row][column] = true
         }
     }
 }
