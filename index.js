@@ -73,6 +73,14 @@ const stepThroughCell = (row, column) => {
         [row + 1, column],
         [row, column - 1]
     ])
+
+    for (let neighbor of neighbors) {
+        const [nextRow, nextColumn] = neighbor
+
+        if (nextRow < 0 || nextRow >= cells || nextColumn >= cells) {
+            continue
+        }
+    }
 }
 
 stepThroughCell(startRow, startColumn)
