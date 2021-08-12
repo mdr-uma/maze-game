@@ -80,6 +80,10 @@ const stepThroughCell = (row, column) => {
         if (nextRow < 0 || nextRow >= cells || nextColumn >= cells) {
             continue
         }
+
+        if (grid[nextRow][nextColumn]) {
+            continue
+        }
     }
 }
 
